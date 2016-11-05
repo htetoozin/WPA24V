@@ -12,25 +12,39 @@
 */
 
 Route::group(['prefix' => 'backend'], function () {
+	Route::get('index',"AccessController@index");
     Route::get('login', "AccessController@getLogin");
     Route::post('login', 'AccessController@postLogin');
+    Route::get('register', "AccessController@getRegister");
+    Route::post('register', 'AccessController@postRegister');
 });
 
+// Route::get("/login", function(){
+// 	return view("backend.login");
+// });
+
+
+// Route::get("/register", function(){
+// 	return view("backend.register");
+// });
+
+
+// Route::get("backend/login", 'AccessController@login');
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/backend/register", function() {
-	$credentials = [
-    	'email'    => 'phpcrazy@gmail.com',
-    	'password' => '123456',
-	];
+// Route::get("/backend/register", function() {
+// 	$credentials = [
+//     	'email'    => 'phpcrazy@gmail.com',
+//     	'password' => '123456',
+// 	];
 
-	$user = Sentinel::register($credentials);
-	$activation = Activation::create($user);
-	var_dump("http://wpa24v.dev/activate/". $user->id . "/" . $activation['code']);
-});
+// 	$user = Sentinel::register($credentials);
+// 	$activation = Activation::create($user);
+// 	var_dump("http://wpa24v.dev/activate/". $user->id . "/" . $activation['code']);
+// });
 
 Route::get("activate/{id}/{activate_code}", function($id, $activate_code){
 	$user = Sentinel::findById($id);
