@@ -11,6 +11,12 @@
 |
 */
 
+Route::group(['prefix' => 'backend'], function () {
+    Route::get('login', "AccessController@getLogin");
+    Route::post('login', 'AccessController@postLogin');
+});
+
+
 Route::get("backend/login", 'AccessController@login');
 
 Route::get('/', function () {

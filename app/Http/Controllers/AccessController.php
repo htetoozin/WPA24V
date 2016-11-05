@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 class AccessController extends Controller
 {
     //
-    public function login() {
+    public function getLogin() {
     	return view("backend.login");
+    }
+
+    public function postLogin(Request $request) {
+    	
     }
 }
