@@ -11,6 +11,8 @@
 |
 */
 
+Route::get("backend/login", 'AccessController@login');
+
 Route::get('/', function () {
     return view('welcome');
 });
