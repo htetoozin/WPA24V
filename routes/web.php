@@ -39,6 +39,8 @@ Route::get("activate/{id}/{activate_code}", function($id, $activate_code){
 	}
 });
 
+
+
 Route::get('password-test', function(){
 	var_dump(md5("123456"));
 	var_dump(md5("123456"));
