@@ -32,6 +32,16 @@ class AccessController extends Controller
             'password_confirmation' => 'same:password',
             'terms_and_condition' => 'accepted'
             ]);
+
+        $credentials = [
+            'first_name'    => $request->input('name'),
+            'email'         => $request->input('email'),
+            'password'      => $request->input('password'),
+        ];
+
+        $user = \Sentinel::register($credentials);
+        $activation = \Activation::create($user);
+        var_dump("http://wpa24v.dev/activate/". $user->id . "/" . $activation['code']);
     }
 }
 
