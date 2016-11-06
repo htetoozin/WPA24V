@@ -13,23 +13,32 @@
     <form action="{{ url('backend/register') }}" method="post">
       {{ csrf_field() }}
       <div class="form-group has-feedback">
-        <input name="name" type="text" class="form-control" placeholder="Full name">
+        <input name="name" type="text" class="form-control" placeholder="Full name" value="{{ old('name') }}">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
         @if($errors->has("name"))
           <span class="text-danger">{{ $errors->first("name")}}</span>  
         @endif
       </div>
       <div class="form-group has-feedback">
-        <input name="email" type="email" class="form-control" placeholder="Email">
+        <input name="email" type="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        @if($errors->has("email"))
+          <span class="text-danger">{{ $errors->first("email")}}</span>  
+        @endif
       </div>
       <div class="form-group has-feedback">
-        <input name="password" type="password" class="form-control" placeholder="Password">
+        <input name="password" type="password" class="form-control" placeholder="Password" value="{{ old('password') }}">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        @if($errors->has("password"))
+          <span class="text-danger">{{ $errors->first("password")}}</span>  
+        @endif
       </div>
       <div class="form-group has-feedback">
-        <input name="password_confirmation" type="password" class="form-control" placeholder="Retype password">
+        <input name="password_confirmation" type="password" class="form-control" placeholder="Retype password" value="{{ old('password_confirmation') }}">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+        @if($errors->has("password_confirmation"))
+          <span class="text-danger">{{ $errors->first("password_confirmation")}}</span>  
+        @endif
       </div>
       <div class="row">
         <div class="col-xs-8">
