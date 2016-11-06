@@ -12,7 +12,7 @@
     <form action="{{ url('backend/login') }}" method="post">
       {{ csrf_field() }}
       <div class="form-group has-feedback">
-        <input name="email" type="email" class="form-control" placeholder="Email">
+        <input name="email" type="email" class="form-control" placeholder="Email" value={{ old('email') }}>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         @if($errors->has("email"))
           <span class="text-danger">{{ $errors->first("email")}}</span>  
