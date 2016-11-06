@@ -22,14 +22,23 @@
       <div class="form-group has-feedback">
         <input name="email" type="email" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        @if($errors->has("name"))
+          <span class="text-danger">{{ $errors->first("email")}}</span>  
+        @endif
       </div>
       <div class="form-group has-feedback">
         <input name="password" type="password" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        @if($errors->has("name"))
+          <span class="text-danger">{{ $errors->first("password")}}</span>  
+        @endif
       </div>
       <div class="form-group has-feedback">
         <input name="password_confirmation" type="password" class="form-control" placeholder="Retype password">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+        @if($errors->has("name"))
+          <span class="text-danger">{{ $errors->first("password_confirmation")}}</span>  
+        @endif
       </div>
       <div class="row">
         <div class="col-xs-8">
