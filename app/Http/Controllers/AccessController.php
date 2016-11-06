@@ -17,7 +17,11 @@ class AccessController extends Controller
     }
 
     public function postLogin(Request $request) {
-    	var_dump($request->all());
+    	
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required'
+            ]);
     }
 
     public function getRegister() {
