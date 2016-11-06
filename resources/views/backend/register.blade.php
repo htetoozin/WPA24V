@@ -34,7 +34,7 @@
         @endif
       </div>
       <div class="form-group has-feedback">
-        <input name="password_confirmation" type="password" class="form-control" placeholder="Retype password" value="{">
+        <input name="password_confirmation" type="password" class="form-control" placeholder="Retype password" value="">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         @if($errors->has("password_confirmation"))
           <span class="text-danger">{{ $errors->first("password_confirmation")}}</span>  
