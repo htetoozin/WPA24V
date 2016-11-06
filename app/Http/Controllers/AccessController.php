@@ -17,7 +17,36 @@ class AccessController extends Controller
     }
 
     public function postLogin(Request $request) {
-    	
+
+	   $this->validate($request, [
+                        'email'     => 'required|email',
+                        'password'  => 'required' 
+                    ]);
+
+        $credentials = [
+            'email'         => $request->input('email'),
+            'password'      => $request->input('password')
+         ];
+
+       if(!$request->input('remember'))
+       {
+            $user = \Sentinel::authenticate($credentials);
+
+            
+       }
+       else
+       {
+            $user = \Sentinel::authenticateAndRemember($credentials);   
+       }
+
+        if(!$user)
+        {
+
+        }
+        else
+        {
+            
+        }
     }
 
     public function getRegister() {
@@ -33,6 +62,15 @@ class AccessController extends Controller
                         'terms_and_condition' => 'accepted'
                     ]);
 
+        $credentials = [
+            'first_name'    => $request->input('name'),
+            'email'         => $request->input('email'),
+            'password'      => $request->input('password')
+        ];
+
+         $user = \Sentinel::register($credentials);
+         $activation = \Activation::create($user);
+         var_dump("http://wpa24v.dev/activate/". $user->id . "/" . $activation['code']);
 
     }
 }
