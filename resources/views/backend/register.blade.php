@@ -10,28 +10,45 @@
   <div class="register-box-body">
     <p class="login-box-msg">Register a new membership</p>
 
-    <form action="../../index.html" method="post">
+    <form action="{{ url('backend/register') }}" method="post">
+    {{ csrf_field() }}
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Full name">
+        <input type="text" class="form-control" name="name" placeholder="Full name" value="{{ old('name') }}">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        @if($errors->has('name'))
+        <span class="text text-danger">{{ $errors->first('name') }}</span>
+        @endif
       </div>
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        @if($errors->has('email'))
+        <span class="text text-danger">{{ $errors->first('email') }}</span>
+        @endif
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" name="password" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        @if($errors->has('password'))
+        <span class="text text-danger">{{ $errors->first('password') }}</span>
+        @endif
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Retype password">
+        <input type="password" class="form-control" name="password_confirmed" placeholder="Retype password">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+        @if($errors->has('password_confirmed'))
+        <span class="text text-danger">{{ $errors->first('password_confirmed') }}</span>
+        @endif
       </div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox"> I agree to the <a href="#">terms</a>
+              <input type="checkbox" name="terms_and_condition"> I agree to the <a href="#">terms</a>
+              <br>
+              @if($errors->has('terms_and_condition'))
+              <span class="text text-danger">{{ $errors->first('terms_and_condition') }}</span>
+              @endif
             </label>
           </div>
         </div>

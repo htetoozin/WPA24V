@@ -26,5 +26,13 @@ class AccessController extends Controller
 
     public function postRegister(Request $request) {
     	
+        $this->validate($request, [
+                        'name' => 'required|min:4',
+                        'email' => 'required|email|unique:users',
+                        'password' => 'required|same:password_confirmed|min:6',
+                        'terms_and_condition' => 'accepted'
+                    ]);
+
+
     }
 }
