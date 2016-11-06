@@ -20,7 +20,8 @@ class AccessController extends Controller
     	
         $this->validate($request, [
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
+            'remember_me' => 'accepted'
             ]);
     }
 

@@ -29,7 +29,11 @@
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox"> Remember Me
+              <input type="checkbox" name='remember_me'> Remember Me
+               @if($errors->has("remember_me"))
+                <br>
+                <span class="text-danger">{{ $errors->first("remember_me")}}</span>  
+              @endif
             </label>
           </div>
         </div>
