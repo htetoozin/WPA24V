@@ -20,9 +20,27 @@ class AccessController extends Controller
     	
         $this->validate($request, [
             'email' => 'required|email',
-            'password' => 'required',
-            'remember_me' => 'accepted'
+            'password' => 'required'
             ]);
+
+        $credentials = [
+            'email'     => $request->input('email'),
+            'password'  => $request->input('password')
+        ];
+
+        if(!$request->input('remember_me')) {
+            $user = \Sentinel::authenticate($credentials);
+        } else {
+            $user = \Sentinel::authenticateAndRemeber($credentials);
+        }
+        if(!$user) {
+            \Alert::error('Error Message', 'Optional Title');
+            return redirect()->to('backend/login');
+        } else {
+
+        }
+
+
     }
 
     public function getRegister() {
