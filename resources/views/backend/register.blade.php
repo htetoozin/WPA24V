@@ -45,6 +45,10 @@
           <div class="checkbox icheck">
             <label>
               <input name="terms_and_condition" type="checkbox"> I agree to the <a href="#">terms</a>
+              @if($errors->has("terms_and_condition"))
+                <br>
+                <span class="text-danger">{{ $errors->first("terms_and_condition")}}</span>  
+              @endif
             </label>
           </div>
         </div>
