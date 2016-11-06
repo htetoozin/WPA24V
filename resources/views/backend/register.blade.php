@@ -10,21 +10,25 @@
   <div class="register-box-body">
     <p class="login-box-msg">Register a new membership</p>
 
-    <form action="../../index.html" method="post">
+    <form action="{{ url('backend/register') }}" method="post">
+      {{ csrf_field() }}
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Full name">
+        <input name="name" type="text" class="form-control" placeholder="Full name">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        @if($errors->has("name"))
+          <span class="text-danger">{{ $errors->first("name")}}</span>  
+        @endif
       </div>
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input name="email" type="email" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input name="password" type="password" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Retype password">
+        <input name="password_confirmation" type="password" class="form-control" placeholder="Retype password">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
       <div class="row">

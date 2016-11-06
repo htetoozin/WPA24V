@@ -17,7 +17,7 @@ class AccessController extends Controller
     }
 
     public function postLogin(Request $request) {
-    	
+    	var_dump($request->all());
     }
 
     public function getRegister() {
@@ -25,6 +25,23 @@ class AccessController extends Controller
     }
 
     public function postRegister(Request $request) {
-    	
+    	$this->validate($request, [
+            'name'      => 'required|min:4',
+            'email'     => 'required|unique:users|email',
+            'password'  => 'required|min:4|confirmed',
+            ]);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
