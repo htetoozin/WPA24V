@@ -18,35 +18,29 @@ class AccessController extends Controller
 
     public function postLogin(Request $request) {
 
-	   $this->validate($request, [
-                        'email'     => 'required|email',
-                        'password'  => 'required' 
-                    ]);
+    	
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required'
+            ]);
 
         $credentials = [
-            'email'         => $request->input('email'),
-            'password'      => $request->input('password')
-         ];
+            'email'     => $request->input('email'),
+            'password'  => $request->input('password')
+        ];
 
-       if(!$request->input('remember'))
-       {
+        if(!$request->input('remember_me')) {
             $user = \Sentinel::authenticate($credentials);
-
-            
-       }
-       else
-       {
-            $user = \Sentinel::authenticateAndRemember($credentials);   
-       }
-
-        if(!$user)
-        {
+        } else {
+            $user = \Sentinel::authenticateAndRemeber($credentials);
+        }
+        if(!$user) {
+            \Alert::error('Error Message', 'Optional Title');
+            return redirect()->to('backend/login');
+        } else {
 
         }
-        else
-        {
-            
-        }
+
     }
 
     public function getRegister() {
@@ -54,23 +48,37 @@ class AccessController extends Controller
     }
 
     public function postRegister(Request $request) {
-    	
-        $this->validate($request, [
-                        'name' => 'required|min:4',
-                        'email' => 'required|email|unique:users',
-                        'password' => 'required|same:password_confirmed|min:6',
-                        'terms_and_condition' => 'accepted'
-                    ]);
+
+    	$this->validate($request, [
+            'name'      => 'required|min:4',
+            'email'     => 'required|unique:users|email',
+            'password'  => 'required|min:4|confirmed',
+            'password_confirmation' => 'same:password',
+            'terms_and_condition' => 'accepted'
+            ]);
 
         $credentials = [
             'first_name'    => $request->input('name'),
             'email'         => $request->input('email'),
-            'password'      => $request->input('password')
+            'password'      => $request->input('password'),
         ];
 
-         $user = \Sentinel::register($credentials);
-         $activation = \Activation::create($user);
-         var_dump("http://wpa24v.dev/activate/". $user->id . "/" . $activation['code']);
+        $user = \Sentinel::register($credentials);
+        $activation = \Activation::create($user);
+        var_dump("http://wpa24v.dev/activate/". $user->id . "/" . $activation['code']);
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

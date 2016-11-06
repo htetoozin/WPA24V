@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css') }}">
   <!-- iCheck -->
   <link rel="stylesheet" href="{{ asset('css/blue.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/sweetalert.css') }}">
 <body class="hold-transition login-page">
 
 
@@ -25,6 +26,8 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <!-- iCheck -->
 <script src="{{ asset('js/icheck.min.js') }}"></script>
+<script src="{{ asset('js/sweetalert.min.js') }}"></script>
+@include('sweet::alert')
 <script>
   $(function () {
     $('input').iCheck({

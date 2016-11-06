@@ -12,24 +12,34 @@
     <form action="{{ url('backend/login') }}" method="post">
       {{ csrf_field() }}
       <div class="form-group has-feedback">
-        <input name="email" type="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
+
+        <input name="email" type="email" class="form-control" placeholder="Email" value={{ old('email') }}>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        @if($errors->has('email'))
-        <span class="text text-danger">{{ $errors->input('email') }}</span>
+        @if($errors->has("email"))
+          <span class="text-danger">{{ $errors->first("email")}}</span>  
+
         @endif
       </div>
       <div class="form-group has-feedback">
         <input name="password" type="password" class="form-control" placeholder="Password" value="{{ old('password') }}">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-         @if($errors->has('password'))
-        <span class="text text-danger">{{ $errors->input('password') }}</span>
+
+         @if($errors->has("password"))
+          <span class="text-danger">{{ $errors->first("password")}}</span>  
+
         @endif
       </div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox" name="remember"> Remember Me
+
+              <input type="checkbox" name='remember_me'> Remember Me
+               @if($errors->has("remember_me"))
+                <br>
+                <span class="text-danger">{{ $errors->first("remember_me")}}</span>  
+              @endif
+
             </label>
           </div>
         </div>

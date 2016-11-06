@@ -11,43 +11,47 @@
     <p class="login-box-msg">Register a new membership</p>
 
     <form action="{{ url('backend/register') }}" method="post">
-    {{ csrf_field() }}
+
+      {{ csrf_field() }}
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="name" placeholder="Full name" value="{{ old('name') }}">
+        <input name="name" type="text" class="form-control" placeholder="Full name" value="{{ old('name') }}">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
-        @if($errors->has('name'))
-        <span class="text text-danger">{{ $errors->first('name') }}</span>
+        @if($errors->has("name"))
+          <span class="text-danger">{{ $errors->first("name")}}</span>  
         @endif
       </div>
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}">
+        <input name="email" type="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        @if($errors->has('email'))
-        <span class="text text-danger">{{ $errors->first('email') }}</span>
+        @if($errors->has("email"))
+          <span class="text-danger">{{ $errors->first("email")}}</span>  
         @endif
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" name="password" placeholder="Password">
+        <input name="password" type="password" class="form-control" placeholder="Password" value="">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        @if($errors->has('password'))
-        <span class="text text-danger">{{ $errors->first('password') }}</span>
+        @if($errors->has("password"))
+          <span class="text-danger">{{ $errors->first("password")}}</span>  
         @endif
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" name="password_confirmed" placeholder="Retype password">
+        <input name="password_confirmation" type="password" class="form-control" placeholder="Retype password" value="">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-        @if($errors->has('password_confirmed'))
-        <span class="text text-danger">{{ $errors->first('password_confirmed') }}</span>
+        @if($errors->has("password_confirmation"))
+          <span class="text-danger">{{ $errors->first("password_confirmation")}}</span>  
+
         @endif
       </div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox" name="terms_and_condition"> I agree to the <a href="#">terms</a>
-              <br>
-              @if($errors->has('terms_and_condition'))
-              <span class="text text-danger">{{ $errors->first('terms_and_condition') }}</span>
+
+              <input name="terms_and_condition" type="checkbox"> I agree to the <a href="#">terms</a>
+              @if($errors->has("terms_and_condition"))
+                <br>
+                <span class="text-danger">{{ $errors->first("terms_and_condition")}}</span>  
+
               @endif
             </label>
           </div>
