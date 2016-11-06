@@ -29,7 +29,8 @@ class AccessController extends Controller
             'name'      => 'required|min:4',
             'email'     => 'required|unique:users|email',
             'password'  => 'required|min:4|confirmed',
-            'password_confirmation' => 'same:password'
+            'password_confirmation' => 'same:password',
+            'terms_and_condition' => 'accepted'
             ]);
     }
 }
