@@ -18,6 +18,7 @@ Route::group(['prefix' => 'backend'], function () {
     Route::post('login', 'AccessController@postLogin');
     Route::get('register', "AccessController@getRegister");
     Route::post('register', 'AccessController@postRegister');
+    Route::resource('product','ProductController');
 });
 
 // Route::get("/login", function(){
@@ -59,6 +60,8 @@ Route::get("activate/{id}/{activate_code}", function($id, $activate_code){
     	return "Not Good!";
 	}
 });
+
+
 
 
 
