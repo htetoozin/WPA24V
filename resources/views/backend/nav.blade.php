@@ -166,13 +166,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="http://localhost:8000/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="http://localhost:8000/dist/img/user2-soe.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs">Sayar Soe</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                <img src="{{ asset('dist/img/user2-soe.jpg') }}" class="img-circle" alt="User Image">
 
                 <p>
                   Sayar Soe - Web Developer
@@ -206,9 +206,7 @@
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+         
         </ul>
       </div>
 

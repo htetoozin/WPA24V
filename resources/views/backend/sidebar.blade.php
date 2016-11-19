@@ -4,7 +4,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="http://localhost:8000/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" data-pin-nopin="true">
+          <img src="http://localhost:8000/dist/img/user2-soe.jpg" class="img-circle" alt="User Image" data-pin-nopin="true">
         </div>
         <div class="pull-left info">
           <p>Sayar Soe</p>
