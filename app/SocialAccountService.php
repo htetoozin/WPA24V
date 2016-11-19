@@ -2,6 +2,7 @@
 namespace App;
 
 use Laravel\Socialite\Contracts\User as ProviderUser;
+use App\SocialAccount;
 
 class SocialAccountService
 {
@@ -12,7 +13,9 @@ class SocialAccountService
             ->first();
 
         if ($account) {
-            return $account->user;
+        	$user = \Sentinel::findById($account->user->id);
+
+            return $user;
         } else {
 
             $account = new SocialAccount([
@@ -24,7 +27,7 @@ class SocialAccountService
     			'login' => $providerUser->getEmail(),
 			];
 
-			$user = Sentinel::findByCredentials($credentials);
+			$user = \Sentinel::findByCredentials($credentials);
 
             if (!$user) {
 
