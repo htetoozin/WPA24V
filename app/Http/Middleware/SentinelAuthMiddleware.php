@@ -18,7 +18,7 @@ class SentinelAuthMiddleware
         if(\Sentinel::check()) {
             return $next($request);    
         }
-        return redirect()->back();
+        return redirect()->to("backend/login");
         
     }
 }

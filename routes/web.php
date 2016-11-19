@@ -61,7 +61,9 @@ Route::get("activate/{id}/{activate_code}", function($id, $activate_code){
 	}
 });
 
-
+// Socialize
+Route::get('/redirect', 'SocialAuthController@redirect');
+Route::get('/callback', 'SocialAuthController@callback');
 
 
 
