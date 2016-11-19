@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\SocialAccountService;
 
 class SocialAuthController extends Controller
 {
@@ -12,10 +13,14 @@ class SocialAuthController extends Controller
         return \Socialite::driver('facebook')->redirect();
     }
 
-    public function callback()
+    public function callback(SocialAccountService $service)
     {
         // when facebook call us a with token
-        $providedUser = \Socialite::driver('facebook')->user();
-        var_dump($providedUser);
+     
+        $user = $service->createOrGetUser(\Socialite::driver('facebook')->user());
+
+		$user = \Sentinel::authenticate($user);        
+
+        return redirect()->to('/backend');
     }
 }
