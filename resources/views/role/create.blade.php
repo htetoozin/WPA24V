@@ -3,7 +3,7 @@
 @section("content")
 <section class="content-header">
   <h1>
-    Product
+    Role
     <small>create</small>
 </h1>
 </section>
@@ -14,7 +14,7 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <form action="{{ url('backend/product') }}" method="post">
+                        <form action="{{ url('backend/role') }}" method="post">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="control-label" for="role">Role</label>
