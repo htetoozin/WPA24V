@@ -36,6 +36,7 @@ class RoleController extends Controller
         		$permissions[$value] = true;			
         	}
         }
+        
         $role = \Sentinel::getRoleRepository()->createModel()->create([
 		    'name' => $request->input('role'),
 		    'slug' => $request->input('slug')
