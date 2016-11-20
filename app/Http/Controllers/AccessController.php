@@ -68,6 +68,7 @@ class AccessController extends Controller
         \Sentinel::logout();
         return redirect()->to("backend/login");
     }
+
 }
 
 
