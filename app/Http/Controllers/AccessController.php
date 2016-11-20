@@ -6,11 +6,6 @@ use Illuminate\Http\Request;
 
 class AccessController extends Controller
 {
-
-	public function index() {
-		return view("backend.index");
-	}
-
     //
     public function getLogin() {
     	return view("backend.login");
@@ -35,10 +30,10 @@ class AccessController extends Controller
             $user = \Sentinel::authenticateAndRemeber($credentials);
         }
         if(!$user) {
-            \Alert::error('Error Message', 'Optional Title');
+            \Alert::error('Something wrong with your login', 'Login Failed')->persistent("Close");
             return redirect()->to('backend/login');
         } else {
-
+            return redirect()->to('backend');
         }
 
     }
@@ -67,6 +62,11 @@ class AccessController extends Controller
         $activation = \Activation::create($user);
         var_dump("http://wpa24v.dev/activate/". $user->id . "/" . $activation['code']);
 
+    }
+
+    public function logout() {
+        \Sentinel::logout();
+        return redirect()->to("backend/login");
     }
 }
 
