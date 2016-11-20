@@ -3,7 +3,7 @@
 @section("content")
 <section class="content-header">
   <h1>
-    Product
+    Role
     <small>create</small>
 </h1>
 </section>
@@ -14,7 +14,7 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <form action="{{ url('backend/product') }}" method="post">
+                        <form action="{{ url('backend/role') }}" method="post">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="control-label" for="role">Role</label>
@@ -39,23 +39,6 @@
                          <label class="control-label" for="slug">User</label>
                             
                             <div class="checkbox">
-                                <label><input type="checkbox" name="user[]" value="user.show">User Show</label>
-                            </div>
-                            
-                            <div class="checkbox">
-                                <label><input type="checkbox" name="user[]" value="user.create">User Create</label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" name="user[]" value="user.edit">User Edit</label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" name="user[]" value="user.delete">User Delete</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group col-md-4">
-                            <label class="control-label" for="slug">Role</label>
-                            <div class="checkbox">
                                 <label><input type="checkbox" name="role_permission[]" value="user.show">User Show</label>
                             </div>
                             
@@ -67,6 +50,23 @@
                             </div>
                             <div class="checkbox">
                                 <label><input type="checkbox" name="role_permission[]" value="user.delete">User Delete</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label class="control-label" for="slug">Role</label>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="role_permission[]" value="role.show">Role Show</label>
+                            </div>
+                            
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="role_permission[]" value="role.create">Role Create</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="role_permission[]" value="role.edit">Role Edit</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="role_permission[]" value="role.delete">Role Delete</label>
                             </div>
                         </div>
                         </div>
