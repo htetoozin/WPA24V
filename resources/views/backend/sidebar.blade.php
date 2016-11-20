@@ -28,6 +28,19 @@
             <li><a href="{{ url('backend/product/create') }}""><i class="fa fa-circle-o"></i> Create Product</a></li>
           </ul>
         </li>
+        
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Role</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active" ><a href="{{ url('backend/role') }}"><i class="fa fa-circle-o"></i> List</a></li>
+            <li><a href="{{ url('backend/role/create') }}""><i class="fa fa-circle-o"></i> Create Role</a></li>
+          </ul>
+        </li>
 
         {{-- <li class="header">LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Product</span></a></li>

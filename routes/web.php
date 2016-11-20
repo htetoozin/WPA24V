@@ -19,11 +19,14 @@ Route::group(['prefix' => 'backend'], function () {
     Route::get('register', "AccessController@getRegister");
     Route::post('register', 'AccessController@postRegister');
     Route::resource('product','ProductController');
+    Route::resource('role','RoleController');
 });
 
 // Route::get("/login", function(){
 // 	return view("backend.login");
 // });
+
+
 
 
 // Route::get("/register", function(){
