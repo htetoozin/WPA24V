@@ -28,7 +28,26 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        
+    	$permissions = [];
+        if($request->has('user'))
+        {
+        	foreach ($request->input('user') as $key => $value) 
+        	{
+        		$permissions[$value] = true;			
+        	}
+        }
+        $role = \Sentinel::getRoleRepository()->createModel()->create([
+		    'name' => $request->input('role'),
+		    'slug' => $request->input('slug')
+		]);
+
+        $role->permissions = $permissions;
+
+        dd($role);
+        //$role->save();
+
+
+       return view('role.index');
     }
 
     /**
