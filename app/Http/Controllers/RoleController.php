@@ -28,10 +28,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $credentials = [
-        	"name" => $request->input('role'),
-        	"slug" => $request->input('slug')
-        ];
+        
     }
 
     /**
