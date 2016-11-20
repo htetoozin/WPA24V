@@ -27,6 +27,8 @@ Route::group(['prefix' => 'backend'], function () {
 // });
 
 
+
+
 // Route::get("/register", function(){
 // 	return view("backend.register");
 // });
