@@ -3,15 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \Sentienl\EloquentRole;
 
-class RoleController extends Controller
+class UserController extends Controller
 {
-    public function create()
-    {
-
-    	return view('role.create');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -19,9 +13,20 @@ class RoleController extends Controller
      */
     public function index()
     {
-       // $role = \Sentinel::getRoleRepository()->pluck('name','name');
+        $users = \Sentinel::getUserRepository()->get();
+        
+        return view('user.index',compact('users'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         $roles = \Sentinel::getRoleRepository()->get();
-        return view('role.index',compact('roles'));
+        return view('user.create',compact('roles'));
     }
 
     /**
@@ -32,19 +37,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-
-    	//dd($request->all());
-    	
-        $role = \Sentinel::getRoleRepository()->createModel()->create([
-		    'name' => $request->input('role'),
-		    'slug' => $request->input('slug')
-		]);
-
-        $role->permissions = $request->input('role_permission');
-        $role->save();
-
-
-       return redirect()->to('backend/role');
+        dd($request->all());
     }
 
     /**

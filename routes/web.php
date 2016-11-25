@@ -20,6 +20,7 @@ Route::group(['prefix' => 'backend'], function () {
     Route::post('register', 'AccessController@postRegister');
     Route::resource('product','ProductController');
     Route::resource('role','RoleController');
+    Route::resource('user','UserController');
 });
 
 // Route::get("/login", function(){

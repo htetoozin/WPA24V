@@ -69,6 +69,23 @@
                                 <label><input type="checkbox" name="role_permission[role.delete]" value="true">Role Delete</label>
                             </div>
                         </div>
+                        <div class="form-group col-md-3">
+                            <label class="control-label" for="slug">Product</label>
+                            
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="role_permission[product.show]" value="true">product Show</label>
+                            </div>
+                            
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="role_permission[product.create]" value="true">product Create</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="role_permission[product.edit]" value="true">product Edit</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="role_permission[product.delete]" value="true">product Delete</label>
+                            </div>
+                        </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

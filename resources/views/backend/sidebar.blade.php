@@ -28,6 +28,20 @@
             <li><a href="{{ url('backend/product/create') }}""><i class="fa fa-circle-o"></i> Create Product</a></li>
           </ul>
         </li> 
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>User Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+           <ul class="treeview-menu">
+            <li  ><a href="{{ url('backend/user') }}"><i class="fa fa-circle-o"></i> User List</a></li>
+            <li><a href="{{ url('backend/user/create') }}""><i class="fa fa-circle-o"></i> Create User</a></li>
+          </ul>
+        </li>
+
         <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Access Management</span>
@@ -40,6 +54,8 @@
             <li><a href="{{ url('backend/role/create') }}""><i class="fa fa-circle-o"></i> Create Role</a></li>
           </ul>
         </li>
+
+
         
        
 

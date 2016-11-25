@@ -21,21 +21,21 @@
 						</tr>
 					</thead>
 					<tbody>
-						{{-- @foreach($products as $product)
+						@foreach($roles as $role)
 		<tr>
-			<td>{{ $product->id }}</td>
-			<td><a href="{{ route('product.show', $blog->id) }}">{{ $product->product_name }}</a></td>
-			<td><a class="btn btn-primary" href="{{ route('product.edit',$product->id) }}">Edit</a>
+			<td>{{ $role->id }}</td>
+			<td><a href="{{ route('role.show', $role->id) }}">{{ $role->name }}</a></td>
+			<td><a class="btn btn-primary" href="{{ route('product.edit',$role->id) }}">Edit</a>
 			</td>
 			<td>
-				<form action="{{ route('product.destroy', '1') }}" method="post">
+				<form action="{{ route('role.destroy', '1') }}" method="post">
 					{{ csrf_field() }}
 					{{ method_field('delete') }}
 					<button class="btn btn-danger">Delete</button>
 				</form>
 			</td>
 		</tr>
-		@endforeach --}}
+		@endforeach
 					</tbody>
 				</table>
 			</div>
