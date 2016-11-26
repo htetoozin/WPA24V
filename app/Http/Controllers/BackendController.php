@@ -9,6 +9,7 @@ class BackendController extends Controller
 
 	public function __construct() {
 		$this->middleware("sentinel");
+		$this->middleware("isAdmin");
 	}
 
     public function index() {
