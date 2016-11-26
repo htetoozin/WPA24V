@@ -55,7 +55,9 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        //
+        $role = \Sentinel::findRoleById($id);
+        
+        return view('role.view', compact('role'));
     }
 
     /**
