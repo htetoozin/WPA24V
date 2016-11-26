@@ -29,10 +29,16 @@
                            </div>
                             
                             <label>Permission</label>
-                           @foreach( $role->permissions as $key =>   $permission )
-                                <p>{{ $key  }}</p>
-                           @endforeach
-                    </form>
+                            <div class="row">
+                                                   
+                                @foreach( $role->permissions as $key =>   $permission )
+                                <div class="col-md-4">
+                                    <p>{{ $key  }}</p>
+                                </div>
+                                @endforeach
+                            
+                            </div>                           
+                        </form>
                 </div>                    
             </div>
         </div>            
