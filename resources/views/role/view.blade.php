@@ -4,7 +4,7 @@
 <section class="content-header">
   <h1>
     Role
-    <small>create</small>
+    <small>Detail</small>
 </h1>
 </section>
 
