@@ -25,7 +25,7 @@
 		<tr>
 			<td>{{ $role->id }}</td>
 			<td><a href="{{ route('role.show', $role->id) }}">{{ $role->name }}</a></td>
-			<td><a class="btn btn-primary" href="{{ route('product.edit',$role->id) }}">Edit</a>
+			<td><a class="btn btn-primary" href="{{ route('role.edit',$role->id) }}">Edit</a>
 			</td>
 			<td>
 				<form action="{{ route('role.destroy', '1') }}" method="post">

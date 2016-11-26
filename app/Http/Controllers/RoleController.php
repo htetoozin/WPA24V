@@ -66,7 +66,9 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = \Sentinel::findRoleById($id);
+
+        return view('role.edit',compact('role'));
     }
 
     /**
