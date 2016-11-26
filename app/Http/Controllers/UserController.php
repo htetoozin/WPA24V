@@ -37,7 +37,29 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+
+        //dd($request->all());
+
+        $this->validate($request, [
+            'name'      => 'required|min:4',
+            'email'     => 'required|unique:users|email',
+            'password'  => 'required|min:4|confirmed',
+            'password_confirmation' => 'same:password',
+            ]);
+
+        $credentials = [
+            'first_name'    => $request->input('name'),
+            'email'         => $request->input('email'),
+            'password'      => $request->input('password'),
+        ];
+
+        $user = \Sentinel::registerAndActivate($credentials);
+
+        $role = \Sentinel::findRoleByName($request->input('role'));
+        $role->users()->attach($user);
+
+        return redirect()->to('backend/user');
+
     }
 
     /**

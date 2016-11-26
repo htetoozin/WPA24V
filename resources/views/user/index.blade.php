@@ -28,9 +28,13 @@
 							<td>{{ $user->id }}</td>
 							<td><a href="{{ route('user.show', $user->id) }}">{{ $user->first_name }}</a></td>
 							<td>{{ $user->email }}</td>
-							<td><a class="btn btn-primary" href="{{ route('user.edit',$user->id) }}">Edit</a>
-							</td>
+
 							<td>{{ $user->roles }}</td>
+
+							<td>
+								<a class="btn btn-primary" href="{{ route('user.edit',$user->id) }}">Edit</a>
+							</td>
+							
 							<td>
 								<form action="{{ route('user.destroy', '1') }}" method="post">
 									{{ csrf_field() }}

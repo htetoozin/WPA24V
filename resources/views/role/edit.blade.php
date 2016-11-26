@@ -16,6 +16,7 @@
                     <div class="col-md-12">
                         <form action="{{ url('backend/role') }}" method="post">
                             {{ csrf_field() }}
+                            {{ method_field("patch")}}
                             <div class="form-group">
                                 <label class="control-label" for="role">Role</label>
                                 <br>

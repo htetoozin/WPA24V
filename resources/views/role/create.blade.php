@@ -35,7 +35,13 @@
                          
                          <label class="control-label" for="slug">Permission</label>
                          <div class="row">
-                         <div class="form-group col-md-4">
+                         <div class="form-group col-md-3">
+                            <label class="control-label" for="slug">Is Admin</label>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="role_permission[admin]" value="true">admin</label>
+                            </div>
+                         </div>
+                         <div class="form-group col-md-3">
                          <label class="control-label" for="slug">User</label>
                             
                             <div class="checkbox">
@@ -53,7 +59,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
                             <label class="control-label" for="slug">Role</label>
                             <div class="checkbox">
                                 <label><input type="checkbox" name="role_permission[role.show]" value="true">Role Show</label>
