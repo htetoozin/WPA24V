@@ -60,7 +60,7 @@ class AccessController extends Controller
 
         $user = \Sentinel::register($credentials);
         $activation = \Activation::create($user);
-        var_dump("http://wpa24v.dev/activate/". $user->id . "/" . $activation['code']);
+        var_dump("http://wpa24social.com/activate/". $user->id . "/" . $activation['code']);
 
     }
 
